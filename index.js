@@ -15,9 +15,9 @@ const emailForm = document.querySelector('#emailForm');
 
 const toast = document.querySelector('.toast');
 
-const host = `${process.env.HOST_URL}`;
-const uploadURL = `${host}${process.env.UPLOAD_URL}`;
-const emailURL = `${host}${process.env.EMAIL_URL}`;
+const host = 'https://innshare.herokuapp.com/';
+const uploadURL = `${host}api/files`;
+const emailURL = `${host}api/files/send`;
 
 const maxAllowedSize = 100 * 1024 * 1024;
 
@@ -71,7 +71,7 @@ const uploadFile = () => {
 
     progressContainer.style.display = 'block';
     const formData = new FormData();
-    formData.append(`${process.env.IDENTIFIER_KEY}`, file);
+    formData.append('myfile', file);
 
     const xhr = new XMLHttpRequest();
 
